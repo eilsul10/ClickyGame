@@ -19,12 +19,12 @@ class App extends Component {
     return (
     <Wrapper>
       <Title>Bob's Burgers Clicky Game</Title>
-      {this.state.characters.map(*** => (
+      {this.state.characters.map(characters => (
         <CharacterCard
             shuffleFriend={this.shuffleFriend}
-            id={***.id}
-            key={***.id}
-            image={***.image}
+            id={characters.id}
+            key={characters.id}
+            image={characters.image}
         />
       ))}
     </Wrapper>
