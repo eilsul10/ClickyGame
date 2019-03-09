@@ -18,7 +18,8 @@ class App extends Component {
   render() {
     return (
     <Wrapper>
-      <Title>Bob's Burgers Clicky Game</Title>
+      <NavBar>Bob's Burgers Clicky Game</NavBar>
+      <Jumbotron></Jumbotron>
       {this.state.characters.map(characters => (
         <CharacterCard
             shuffleFriend={this.shuffleFriend}
@@ -27,6 +28,7 @@ class App extends Component {
             image={characters.image}
         />
       ))}
+      <Footer></Footer>
     </Wrapper>
     );
   }
