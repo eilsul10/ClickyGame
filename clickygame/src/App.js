@@ -5,6 +5,13 @@ import Jumbotron from "./components/Jumbotron";
 import NavBar from "./components/NavBar";
 import characters from "./characters.json";
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 class App extends Component {
 
   state = {
@@ -15,31 +22,24 @@ class App extends Component {
     status: ""
   };
 
-  clickImage = event => {
-    const character = event.target.alt;
+  clickImage = id => {
+    const character = id;
     const characterClicked = this.state.clickedCharacters.indexOf(character) > -1;
 
+    shuffleArray(this.state.characters)
+
     if (characterClicked) {
-      this.setState({ clickedCharacters: [], score: 0, highScore: this.score, status:  "Game Over! Click to play again." });
-      
-      for (let i = characters.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [characters[i], characters[j]] = [characters[j], characters[i]];
+      this.setState({ clickedCharacters: [], score: 0, status:  "Game Over! Click to play again.", characters: this.state.characters });
+    } else {
+      const newScore = this.state.score + 1;
+      const newHighScore = Math.max(newScore, this.state.highScore);
+      if (newScore === 9) {
+        this.setState({highScore: 9, score: 0, status: "You Won! Click to play again.", clickedCharacters: []});
+        return;
       }
-      return characters;
+  
+      this.setState({status: '', score: newScore, highScore: newHighScore, clickedCharacters: [character, ...this.state.clickedCharacters]});
     }
-    
-    else if
-    (this.state.clickedCharacters.length === 9) {
-      this.setState({highScore: 9, status: "You Won! Click to play again.", clickedCharacters: []});
-      return;
-    }
-
-    else {
-      this.setState.score ++
-    }
-
-
   };
 
   render() {
@@ -48,6 +48,7 @@ class App extends Component {
       <NavBar
         score = {this.state.score}
         highScore={this.state.highScore}
+        status={this.state.status}
       />
       <Jumbotron />
       <div className= "container row">

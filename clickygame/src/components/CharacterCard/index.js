@@ -6,7 +6,7 @@ function CharacterCard(props) {
         <div className="card">
             <div className="img-thumbnail">
                 <img class="card-img" alt={props.name} src={props.image} id={props.id} 
-                 onClick = {() => props.clickImage(props.id)} />
+                 onClick = {(event) => props.clickImage(props.id)} />
             </div>
         </div>
     );
