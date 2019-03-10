@@ -1,7 +1,6 @@
 import React from "react";
-import "./style.css";
 
-function Jumbotron () {
+function Jumbotron (props) {
     return (
         <div className="jumbotron text-center">
             <h1>Bob's Burgers Clicky Game</h1>

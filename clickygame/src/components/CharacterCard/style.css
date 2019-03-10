@@ -1,6 +1,11 @@
-img {
+.card {
 	width:200px;
     height:200px;
-    object-fit: cover;
+    margin: 10px 40px;
     overflow: hidden;
+}
+
+.card-img{
+    width:200px;
+    height:200px;
 }
