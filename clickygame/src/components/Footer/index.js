@@ -1,10 +1,13 @@
 import React from "react";
-import "./style.css";
 
-function Footer (props) {
+function Footer(props) {
     return (
-        <footer className="footer">
-            <span>Bob's Burger Clicky Game 2019</span>
+        <footer class="page-footer text-center">
+           
+                <div class="container">
+                    © 2019 Bob's Burger Clicky Game
+          </div>
+          
         </footer>
     );
 }

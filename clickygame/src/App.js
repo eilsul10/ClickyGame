@@ -30,8 +30,8 @@ class App extends Component {
     }
     
     else if
-    (this.state.clickedCharacters.length === 12) {
-      this.setState({highScore: 12, status: "You Won! Click to play again.", clickedCharacters: []});
+    (this.state.clickedCharacters.length === 9) {
+      this.setState({highScore: 9, status: "You Won! Click to play again.", clickedCharacters: []});
       return;
     }
 
@@ -50,7 +50,7 @@ class App extends Component {
         highScore={this.state.highScore}
       />
       <Jumbotron />
-      <div className= "row">
+      <div className= "container row">
       {this.state.characters.map(characters => (
         <CharacterCard
             clickImage={this.clickImage}
